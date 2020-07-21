@@ -14,9 +14,9 @@
     
   def call(sonarorganization,sonarprojectKey,sonarprojectName,sonarHostUrl,sonarprojectVersion,sonarSources,sonarLanguage,sonarBinaries,sonarjavacoveragePlugin,sonarcoveragejacocoxmlReportPaths,sonarExclusions,sonarsourceEncoding) {
   echo "************************************Sonar***************qube***********************"
-  def scannerHome = tool 'sonars'
+  def scannerHome = tool 'sonarscanner'
   
-  withSonarQubeEnv(credentialsId: 'sonarnew', installationName: 'sonar') {
+  withSonarQubeEnv(credentialsId: 'sonarqube', installationName: 'sonar') {
     sh "${scannerHome}/bin/sonar-scanner -Dsonar.organization=${sonarorganization} \
                 -Dsonar.projectKey=${sonarprojectKey}  \
                 -Dsonar.projectName=${sonarprojectName} \
