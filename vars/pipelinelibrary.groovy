@@ -51,7 +51,7 @@ def tomcaturl = config.tomcaturl ?: ''
                 }
                 stage('Deployment'){
             steps{
-               deploy_tomcat(tomcaturl)
+               deploy_tomcat()
             }
         }
             }
