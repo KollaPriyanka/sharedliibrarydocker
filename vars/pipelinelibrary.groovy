@@ -48,6 +48,21 @@ def sonarsourceEncoding = config.sonarsourceEncoding ?: ''
                        qualitygate()
                     }
                 }
+                stage('Deployment'){
+            steps{
+               deploy_tomcat()
             }
+        }
+            }
+            post { 
+                success { 
+                    echo 'notified to slack '
+                    slackSend (color: '#00FF00', message: " JOB SUCCESSFUL: Job '${JOB_NAME} [${BUILD_NUMBER}]'")
+                }
+                failure {
+                    echo 'notified to slack'
+                    slackSend (color: '#FF0000', message: " JOB FAILED: Job '${JOB_NAME} [${BUILD_NUMBER}]'")
+                }
+               }
       }
 }
