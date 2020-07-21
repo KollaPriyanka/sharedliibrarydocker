@@ -5,7 +5,7 @@ def call(body) {
     body()
 //def call(urllink,dockerimage,mavenBuild,sonarorganization,sonarprojectKey,sonarprojectName){
 def urllink = config.urllink ?: ''
-def dockerimage = config.dockerimage ?: ''
+//def dockerimage = config.dockerimage ?: ''
 def mavenBuild = config.mavenBuild ?: ''
 def sonarorganization = config.sonarorganization ?: ''
 def sonarprojectKey = config.sonarprojectKey ?: ''
@@ -33,9 +33,9 @@ def sonarsourceEncoding = config.sonarsourceEncoding ?: ''
                     }
                 }
                
-                stage('Build_In_Container'){
+                stage('Build'){
                     steps{
-                            dockerbuild(dockerimage,mavenBuild)
+                            build(mavenBuild)
                     }
                 }
                 stage('SonarStage'){
