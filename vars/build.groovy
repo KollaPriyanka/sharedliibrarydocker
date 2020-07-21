@@ -1,4 +1,7 @@
-def call(String msg = 'clean') {
-echo "${msg}"
-   sh 'mvn clean package'
-}
+def call(mavenBuild) 
+{
+         echo mavenBuild
+         def mBuild = mavenBuild
+         sh "${mBuild}"
+ }
+            
