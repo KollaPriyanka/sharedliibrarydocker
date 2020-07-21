@@ -16,7 +16,7 @@
   echo "************************************Sonar***************qube***********************"
   def scannerHome = tool 'sonarscanner'
   
-  withSonarQubeEnv(credentialsId: 'sonarqube', installationName: 'sonar') {
+  withSonarQubeEnv(credentialsId: 'sonarqube', installationName: 'sonarcloud') {
     sh "${scannerHome}/bin/sonar-scanner -Dsonar.organization=${sonarorganization} \
                 -Dsonar.projectKey=${sonarprojectKey}  \
                 -Dsonar.projectName=${sonarprojectName} \
