@@ -19,6 +19,7 @@ def sonarjavacoveragePlugin = config.sonarjavacoveragePlugin ?: ''
 def sonarcoveragejacocoxmlReportPaths = config.sonarcoveragejacocoxmlReportPaths ?: ''
 def sonarExclusions = config.sonarExclusions ?: ''
 def sonarsourceEncoding = config.sonarsourceEncoding ?: ''
+def tomcaturl = config.tomcaturl ?: ''
 
     
 
